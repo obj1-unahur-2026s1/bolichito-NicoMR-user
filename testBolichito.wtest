@@ -1,0 +1,35 @@
+import personas.*
+import objetos.*
+
+
+describe "Test de gustos de las personas" {
+  test "A Rosa le gusta la pelota porque pesa menos de 2 kilos" {
+    assert.that(personaRosa.leGusta(pelota))
+  }
+
+  test "A Estefanía le gusta una placa roja de cualquier tamaño o la biblioteca pero no le gusta la pelota ni un muñeco" {
+
+    assert.that(personaEstefanía.leGusta(placa))
+    assert.that(personaEstefanía.leGusta(biblioteca))
+    assert.notThat(personaEstefanía.leGusta(pelota))
+    assert.notThat(personaEstefanía.leGusta(muñeco))
+  }
+
+  test "A Luisa le gustan los objetos como placas o muñecos de vidrio. Pero no le gustan las remeras ni la pelotas." {
+    assert.that(personaLuisa.leGusta(placa))
+    assert.that(personaLuisa.leGusta(muñeco))
+    assert.notThat(personaLuisa.leGusta(remera))
+    assert.notThat(personaLuisa.leGusta(pelota))
+  }
+
+  test "A Juan le puede gustar una pelota, un muñeco o una placa que pese 1500 gramos. Pero no le gusta la biblioteca ni la remera." {
+    placa.peso(1500)
+    
+    
+    assert.that(personaJuan.leGusta(pelota))
+    assert.that(personaJuan.leGusta(muñeco))
+    assert.that(personaJuan.leGusta(placa))
+    assert.notThat(personaJuan.leGusta(biblioteca))
+    assert.notThat(personaJuan.leGusta(remera))
+  }
+}
